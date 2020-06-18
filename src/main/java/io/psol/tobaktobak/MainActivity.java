@@ -34,8 +34,10 @@ import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.io.PrintWriter;
 import java.net.Socket;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
+import java.util.Map;
 
 import io.psol.tobaktobak.http.HttpSender;
 import io.psol.tobaktobak.http.ResultHandler;
@@ -264,9 +266,7 @@ public class MainActivity extends AppCompatActivity {
                     .setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
                         @Override
                         public boolean onMenuItemClick(MenuItem menuItem) {
-
                             ImageURL = webViewHitTestResult.getExtra();
-
                             if (URLUtil.isValidUrl(ImageURL)) {
                                 // HTTP Request
                                 // response 받은 TTS data 처리를 위해 Context 연결해줌
@@ -274,7 +274,7 @@ public class MainActivity extends AppCompatActivity {
                                 sender.setBodyContents(ImageURL);
                                 sender.send();
 
-                                Log.e("HTTPSender", "전송");
+                                Log.e("HTTPSender", "전송완료");
                                 /* socket Request
                                 TCPclient tcpThread = new TCPclient(ImageURL);
                                 Thread thread = new Thread(tcpThread);
