@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">TobakTobak</string>
+
+    <string name="accessibility_description">접근성 권한 내놔.</string>
+</resources>
