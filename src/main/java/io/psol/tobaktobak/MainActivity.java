@@ -262,8 +262,8 @@ public class MainActivity extends AppCompatActivity {
         // 이미지 타입만 감지
         if (webViewHitTestResult.getType() == WebView.HitTestResult.IMAGE_TYPE ||
                 webViewHitTestResult.getType() == WebView.HitTestResult.SRC_ANCHOR_TYPE) {
-            contextMenu.setHeaderTitle("메뉴");
-            contextMenu.add(0, 1, 0, "사진 전송")
+            contextMenu.setHeaderTitle("또박또박");
+            contextMenu.add(0, 1, 0, "사진 분석")
                     .setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
                         @Override
                         public boolean onMenuItemClick(MenuItem menuItem) {

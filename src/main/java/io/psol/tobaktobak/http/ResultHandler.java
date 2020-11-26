@@ -25,21 +25,23 @@ public class ResultHandler extends Handler {
     public void handleMessage(Message msg) {
         switch (msg.what){
             case 0:
+                // Server's response JSON data 가공
                 try {
-//                    String TTS = (String) msg.obj;
-//                    ((MainActivity)context).speakData(TTS);
                     JSONObject result = new JSONObject((String) msg.obj);
+
+                    // JSON parsing (for TTS)
                     String objInfoString = result.getString("Object");
                     String labelInfoString = result.getString("Label");
                     String textInfoString = result.getString("Text");
 
-                    String TTS = "객체 " + objInfoString + "\n라벨 " + labelInfoString;
+                    String TTS = "사진 속의 객체\n" + objInfoString + "\n사진 속의 디테일 객체\n" + labelInfoString;
 //                    ((MainActivity)context).speakData(objInfoString);
 //                    ((MainActivity)context).speakData(labelInfoString);
-                    if (textInfoString != null) {
-                        TTS += "\n글자 " + textInfoString;
+                    if (!textInfoString.isEmpty()) {
+                        TTS += "\n사진에 글자가 포함되어 있습니다.\n" + textInfoString;
 //                        ((MainActivity)context).speakData(textInfoString);
                     }
+                    Log.e("result", "Text: "+ textInfoString);
                     ((MainActivity)context).speakData(TTS);
                     Toast.makeText(context, TTS, Toast.LENGTH_LONG).show();
                 } catch (JSONException e) {

@@ -8,7 +8,7 @@ import com.squareup.okhttp.FormEncodingBuilder;
 import java.util.HashMap;
 
 public class UrlSender extends HttpSender {
-    //TTS 구현 후 Resulthandler에 결과값 TTS화
+    // Sender (server로 URL send)
     public UrlSender(Handler handler){
         super(handler);
         apiName = "android";

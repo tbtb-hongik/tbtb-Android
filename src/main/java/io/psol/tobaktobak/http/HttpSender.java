@@ -17,8 +17,10 @@ import java.util.concurrent.TimeUnit;
 import io.psol.tobaktobak.MainActivity;
 
 public abstract class HttpSender {
+    // AWS EC2 Server IP
     private static final String URL = "http://13.251.164.73:5555/";
 
+    // local TEST
 //    private static final String URL = "http://172.17.23.49:5555/";
 
     protected String apiName;
@@ -45,7 +47,7 @@ public abstract class HttpSender {
                 try {
                     Response response = client.newCall(request).execute();
 
-                    // server로부터 받은 TTS data
+                    // server로부터 받은 JSON data
                     msg.obj = response.body().string();
 
                     Log.e("HTTPSender", "Server Response : " + msg.obj);
