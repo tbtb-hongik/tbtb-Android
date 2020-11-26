@@ -130,7 +130,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        webView.loadUrl("http://www.naver.com");
+        webView.loadUrl("https://www.naver.com");
 
         // TTS 생성 및 초기화
         mainContext = this;
@@ -259,6 +259,7 @@ public class MainActivity extends AppCompatActivity {
 
         final WebView.HitTestResult webViewHitTestResult = webView.getHitTestResult();
 
+        // 이미지 타입만 감지
         if (webViewHitTestResult.getType() == WebView.HitTestResult.IMAGE_TYPE ||
                 webViewHitTestResult.getType() == WebView.HitTestResult.SRC_ANCHOR_TYPE) {
             contextMenu.setHeaderTitle("메뉴");
@@ -275,12 +276,12 @@ public class MainActivity extends AppCompatActivity {
                                 sender.send();
 
                                 Log.e("HTTPSender", "전송완료");
+                                //Toast.makeText(getApplicationContext(), "전송", Toast.LENGTH_LONG).show();
                                 /* socket Request
                                 TCPclient tcpThread = new TCPclient(ImageURL);
                                 Thread thread = new Thread(tcpThread);
                                 thread.start();
                                 */
-                                Toast.makeText(getApplicationContext(), "전송", Toast.LENGTH_LONG).show();
 
                                 /*================= 이미지 다운로드 (확장기능) =================*/
                                 /*
@@ -294,7 +295,8 @@ public class MainActivity extends AppCompatActivity {
 
                                 Toast.makeText(MainActivity.this,"다운로드 완료.",Toast.LENGTH_LONG).show();
                                  */
-                            } else {
+                            }
+                            else {
                                 Toast.makeText(MainActivity.this, "전송 실패.", Toast.LENGTH_LONG).show();
                             }
                             return false;

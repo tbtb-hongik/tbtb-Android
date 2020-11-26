@@ -30,15 +30,15 @@ public class AccessibilityService extends android.accessibilityservice.Accessibi
         // Chrome 기반으로 이미지 클릭시 이미지 정보 빼오기
         if (event.getSource() != null) {
             if (event.getSource().getClassName().toString().equals("android.widget.Image")) {
-                Log.e("접근성", "궁금쓰 : " + event.getSource().getClassName());
+                Log.e("접근성", "ClassName : " + event.getSource().getClassName());
                 Rect rect = new Rect();
                 event.getSource().getBoundsInScreen(rect);
-                Log.e("접근성", "궁금쓰 : " + rect.toString() + rect.centerX() + rect.centerY());
-                Log.e("접근성", "궁금쓰 : " + event.getItemCount());
+                Log.e("접근성", "x, y : " + rect.toString() + rect.centerX() + rect.centerY());
+                Log.e("접근성", "Item : " + event.getItemCount());
                 AccessibilityNodeInfo node = event.getSource();
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
                     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-                        Log.e("접근성", "궁금..! : " + event.getSource().getText().toString());
+                        Log.e("접근성", "toString : " + event.getSource().getText().toString());
                     }
                 }
 

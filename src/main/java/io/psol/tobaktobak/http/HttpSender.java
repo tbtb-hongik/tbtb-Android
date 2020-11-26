@@ -19,6 +19,8 @@ import io.psol.tobaktobak.MainActivity;
 public abstract class HttpSender {
     private static final String URL = "http://13.251.164.73:5555/";
 
+//    private static final String URL = "http://172.17.23.49:5555/";
+
     protected String apiName;
     protected RequestBody body;
 
@@ -44,12 +46,12 @@ public abstract class HttpSender {
                     Response response = client.newCall(request).execute();
 
                     // server로부터 받은 TTS data
-                    //String result = response.body().string();
-                    msg.what = 0;
                     msg.obj = response.body().string();
+
                     Log.e("HTTPSender", "Server Response : " + msg.obj);
+                    msg.what = 0;
                 } catch (IOException e) {
-                    Log.e("HTTPSender", "서버 연결 실패");
+                    Log.e("HTTPSender", "서버 연결 실패" + e);
                     msg.what = -1;
                 }
                 msg.sendToTarget();
